@@ -1,9 +1,14 @@
-
-
 import 'package:flutter/material.dart';
+import 'package:magic_ball/magic_ball_widget.dart';
+
+
+const Alignment alignmentTopLeft = Alignment.topLeft;
+const Alignment alignmentBottomRight = Alignment.bottomRight;
+
 
 class GradientContainer extends StatelessWidget {
-  const GradientContainer({super.key});
+  GradientContainer({super.key});
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -13,16 +18,14 @@ class GradientContainer extends StatelessWidget {
           const Color.fromARGB(255, 47, 3, 55),
           Colors.blue.shade400,
         ],
-        begin: Alignment.topLeft,
-        end: Alignment.bottomRight
+        begin: alignmentTopLeft,
+        end: alignmentBottomRight
         )
       ),
-      child: Center(child: Text("Hello", style: TextStyle(color: Colors.black, fontSize: 24),)));
+      child: Center(
+      child: MagicBallWidget()
+              ));
   }
-
 }
-
-
-  
 
 
