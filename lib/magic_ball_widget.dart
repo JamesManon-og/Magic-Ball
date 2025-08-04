@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'styled_test.dart';
+import 'dart:math';
 
 class MagicBallWidget extends StatefulWidget {
   @override
@@ -9,12 +10,11 @@ class MagicBallWidget extends StatefulWidget {
 }
 
 class _MagicBallWidgetState extends State<MagicBallWidget> {
-  String ballImage = "assets/images/ball_images/1.png";
+  var randomNumber = 5;
 
   void shake() {
     setState(() {
-      ballImage = "assets/images/ball_images/2.png";
-      print("Shake the ball!");
+      randomNumber = Random().nextInt(6) + 1;
     });
   }
 
@@ -25,7 +25,7 @@ class _MagicBallWidgetState extends State<MagicBallWidget> {
         children: [
           const SizedBox(height: 50), 
           const StyledTest("ask a question"),
-          Image.asset(ballImage, width: 300),
+          Image.asset( "assets/images/ball_images/${randomNumber}.png", width: 300),
           TextButton(
             onPressed: shake,
             child: const Text(
